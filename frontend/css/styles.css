@@ -1,0 +1,68 @@
+body {
+    background-color: #fbfeff;
+}
+
+h1 {
+    text-align: center;
+}
+
+#station-bicis {
+    list-style: none;
+    padding: 0;
+}
+
+#app-container {
+    display: flex;
+    height: 90vh;
+}
+
+#sidebar {
+    width: 300px;
+    background: #f9f9f9;
+    border-right: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+#sidebar h2 {
+    margin-top: 0;
+    text-align: center;
+}
+
+#search {
+    width: 93%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: 2px solid #ccc;
+}
+
+#station-list {
+    list-style: none;
+    padding: 0;
+}
+
+#station-list li {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 8px;
+    margin-bottom: 6px;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+
+#station-list li:hover {
+    background: #e6f7ff;
+}
+
+#station-list li.active{
+    background-color: #d1ecf1;
+    border-left: 4px solid #17a2b8;
+    font-weight: bold;
+}
+
+#map { 
+    flex: 1;
+    height: 100%;
+}
