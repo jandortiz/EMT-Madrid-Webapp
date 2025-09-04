@@ -77,3 +77,28 @@ async function loadStations(){
 
 loadStations();
 setInterval(loadStations, 30000)
+
+document.querySelectorAll(".tab-button").forEach(button =>{
+    button.addEventListener("click", () =>{
+        document.querySelectorAll(".tab-button").forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        let selectedTab = button.dataset.tab;
+
+        if (selectedTab === 'bicimad') {
+            showBicimadLayer();
+            hideEMTLayer();
+        } else if (selectedTab === 'emt'){
+            showEMTLayer();
+            hideBicimadLayer();
+        }
+        updateSidebarForTab(selectedTab);
+    });
+});
+
+
+function showBicimadLayer() {console.log("MOSTRAR Bicimad")};
+function hideBicimadLayer() {console.log("OCULTAR Bicimad")};
+function showEMTLayer() {console.log("MOSTRAR EMT")};
+function hideEMTLayer() {console.log("OCULTAR EMT")};
+function updateSidebarForTab(tab) {console.log(`Sidebar de ${tab}`)};
