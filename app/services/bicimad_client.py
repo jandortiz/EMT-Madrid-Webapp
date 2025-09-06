@@ -1,8 +1,6 @@
 # Module responsible for manage the connection to EMT-Madrid API.
-import os
 import json
 import requests
-from dotenv import load_dotenv
 from db.redis import redis_client
 
 
