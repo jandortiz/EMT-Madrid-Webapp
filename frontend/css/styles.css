@@ -59,7 +59,7 @@ h1 {
 #tabs-container {
     display:flex;
     justify-content: space-around;
-    background: #f4f4f4;
+    background: #f9f9f9;
     padding: 0.5rem;
     border-bottom: 2px solid #ccc;
 }
