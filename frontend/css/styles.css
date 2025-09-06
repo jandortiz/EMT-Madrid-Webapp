@@ -105,11 +105,7 @@ h1 {
 }
 
 .tab-button.active {
-    background: #007bff;
-    color: white;
+    background: #d1ecf1;
     border-radius: 5px;
-}
-
-.tab-button:hover {
-    background: #ddd;
+    border-left: 4px solid #17a2b8;
 }
