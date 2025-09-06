@@ -6,7 +6,7 @@ h1 {
     text-align: center;
 }
 
-#station-bicis {
+.station-bicis {
     list-style: none;
     padding: 0;
 }
