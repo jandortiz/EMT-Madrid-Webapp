@@ -33,7 +33,12 @@ h1 {
     overflow-y: auto;
 }
 
-#sidebar h2 {
+#sidebar-header {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 1rem;
+}
+
+#sidebar-title {
     margin-top: 0;
     text-align: center;
 }
