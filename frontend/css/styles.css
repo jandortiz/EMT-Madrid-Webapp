@@ -41,7 +41,35 @@ h1 {
 #sidebar-title {
     margin-top: 0;
     text-align: center;
+    font-size: 1.4rem;
+    font-weight: bold;
 }
+
+#sidebar-content {
+    font-size: 1rem;
+}
+
+#sidebar-list li {
+    justify-content: left;
+    list-style: none;
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: background 0.3s;
+    border-radius: 10px;
+}
+
+#sidebar-list li:hover {
+    background: #f5f5f5;
+}
+
+#sidebar-list li.active {
+    background-color: #d1ecf1;
+    font-weight: bold;
+    border-left: 4px solid #17a2b8;
+}
+
+/* *************************** */
 
 #search {
     width: 93%;
