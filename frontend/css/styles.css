@@ -9,6 +9,15 @@ h1 {
 .station-bicis {
     list-style: none;
     padding: 0;
+    display: none;
+}
+
+.station-bicis.active {
+    display: block;
+}
+
+.station-bicis > li {
+    display: inline-block;
 }
 
 #app-container {
