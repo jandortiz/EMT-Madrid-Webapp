@@ -74,10 +74,6 @@ async function loadBicimadStations(){
     });
 }
 
-
-loadStations();
-setInterval(loadStations, 30000)
-
 document.querySelectorAll(".tab-button").forEach(button =>{
     button.addEventListener("click", () =>{
         document.querySelectorAll(".tab-button").forEach(btn => btn.classList.remove('active'));
