@@ -16,7 +16,7 @@ let stationLayers = L.layerGroup().addTo(map);
 let searchQuery =  "";
 document.getElementById("search").addEventListener("input", (e) => {
     searchQuery = e.target.value.toLowerCase();
-    loadStations();
+    loadBicimadStations();
 })
 
 // Elemento que recibe el color relacionado con disponibilidad.
@@ -24,7 +24,7 @@ let activeIconFilter = "all";
 document.querySelectorAll('input[name="bici-filter"]').forEach((radio) => {
     radio.addEventListener("change", (e) => {
         activeIconFilter = e.target.value;
-        loadStations();
+        loadBicimadStations();
     })
 })
 
@@ -33,7 +33,7 @@ document.querySelectorAll('input[name="bici-filter"]').forEach((radio) => {
  * Maneja la respuesta dada por el API de la EMT y los filtros asociados a
  * búsqueda y colores.
  */
-async function loadStations(){
+async function loadBicimadStations(){
 
     let apiStations = await getStations();
     let ulElement = document.getElementById("station-list");
