@@ -14,3 +14,15 @@ export async function getBicimadStations() {
     const result = await response.json();
     return result;
 }
+
+
+export async function getEMTStops() {
+    let response = await fetch(
+        "http://127.0.0.1:8000/emt/stops", {
+            method: "GET",
+            headers: {"Content-Type": "applicacion/json"}
+        }
+    );
+    let result = await response.json();
+    return result;
+}
