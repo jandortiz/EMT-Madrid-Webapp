@@ -3,7 +3,7 @@
  * las estaciones de bicicletas.
  * @returns {Array<string>} Lista con estaciones.
  */
-export async function getStations() {
+export async function getBicimadStations() {
 
     const response = await fetch(
         "http://127.0.0.1:8000/bicimad/latest", {
