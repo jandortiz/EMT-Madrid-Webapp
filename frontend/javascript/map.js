@@ -1,4 +1,4 @@
-import { getStations } from "/frontend/javascript/api.js";
+import { getBicimadStations, getEMTStops } from "/frontend/javascript/api.js";
 import { getBikeIcons, getListItems } from "/frontend/javascript/utils.js";
 
 // Sección correspondiente a la creación del mapa.
