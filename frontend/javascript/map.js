@@ -35,8 +35,11 @@ document.querySelectorAll('input[name="bici-filter"]').forEach((radio) => {
  */
 async function loadBicimadStations(){
 
-    let apiStations = await getStations();
-    let ulElement = document.getElementById("station-list");
+    let apiStations = await getBicimadStations();
+    let ulElement = document.getElementById("sidebar-list");
+    let biciFilter = document.querySelector(".station-bicis");
+    biciFilter.classList.add('active');
+
     let stationMarkers = {};
 
     ulElement.innerHTML = "";
