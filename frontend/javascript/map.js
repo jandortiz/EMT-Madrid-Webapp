@@ -34,6 +34,7 @@ document.querySelectorAll('input[name="bici-filter"]').forEach((radio) => {
  * búsqueda y colores.
  */
 async function loadBicimadStations(){
+    stationLayers.clearLayers();
 
     let apiStations = await getBicimadStations();
     let ulElement = document.getElementById("sidebar-list");
@@ -41,9 +42,7 @@ async function loadBicimadStations(){
     biciFilter.classList.add('active');
 
     let stationMarkers = {};
-
     ulElement.innerHTML = "";
-    stationLayers.clearLayers();
     
     
     apiStations.forEach(station => {
@@ -51,7 +50,6 @@ async function loadBicimadStations(){
         let color = iconRespone['icon-color'];
 
         let colorFilter = (activeIconFilter==="all" || color === activeIconFilter);
-
         let searchFilter = station.name.toLowerCase().includes(searchQuery);
 
         if (colorFilter && searchFilter) {
