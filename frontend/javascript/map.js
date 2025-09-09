@@ -81,14 +81,6 @@ document.querySelectorAll(".tab-button").forEach(button =>{
         button.classList.add('active');
 
         let selectedTab = button.dataset.tab;
-
-        if (selectedTab === 'bicimad') {
-            showBicimadLayer();
-            hideEMTLayer();
-        } else if (selectedTab === 'emt'){
-            showEMTLayer();
-            hideBicimadLayer();
-        }
         updateSidebarForTab(selectedTab);
     });
 });
