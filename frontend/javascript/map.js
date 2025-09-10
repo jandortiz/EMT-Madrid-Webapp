@@ -86,8 +86,65 @@ document.querySelectorAll(".tab-button").forEach(button =>{
 });
 
 
-function showBicimadLayer() {console.log("MOSTRAR Bicimad")};
-function hideBicimadLayer() {console.log("OCULTAR Bicimad")};
-function showEMTLayer() {console.log("MOSTRAR EMT")};
-function hideEMTLayer() {console.log("OCULTAR EMT")};
-function updateSidebarForTab(tab) {console.log(`Sidebar de ${tab}`)};
+async function loadEMTStops() {
+    stationLayers.clearLayers();
+
+    let emtStops = await getEMTStops();
+    let biciFilter = document.querySelector(".station-bicis");
+    biciFilter.classList.remove('active');
+
+    let personIcon = L.divIcon({
+            className: "custom-bike-icon",
+            html: `<i class="fa-solid fa-person"; style="color:red; font-size:20px;"></i>`,
+            iconSize: [25, 25],
+            iconAnchor: [12, 12]
+        })
+    
+    map.setView([40.41521, -3.69191], 16);
+
+    emtStops.forEach(stop =>{
+        let lon = stop.geometry.coordinates[0];
+        let lat = stop.geometry.coordinates[1];
+
+        L.marker([lat, lon])
+        .addTo(map)
+        .bindPopup(
+                `
+                <p><b>Parada:</b> ${stop.stopName}</p>
+                <p><b>Ubicación:</b> ${stop.address}</p>
+                <p><b>Distancia a ti:</b> ${stop.metersToPoint}m</p>
+                <p><b>Hora de actualización:</b>  ${new Date().toLocaleTimeString()}</p>
+                `
+            )
+        L.marker([40.41521, -3.69191], {icon:personIcon})
+        .addTo(map)
+        .addTo(stationLayers)
+
+    })
+}
+
+
+let bicimadInterval = null;
+
+function updateSidebarForTab(tab) {
+    let titleElement = document.getElementById("sidebar-title");
+    let listElement = document.getElementById("sidebar-list");
+
+    listElement.innerHTML = "";
+    stationLayers.clearLayers();
+    
+
+    if (bicimadInterval){
+        clearInterval(bicimadInterval);
+        bicimadInterval = null;
+    }
+
+    if (tab === "bicimad") {
+        titleElement.textContent =  "🚲 🚲 🚲 🚲";
+        loadBicimadStations();
+        bicimadInterval = setInterval(loadBicimadStations, 30000);
+    } else if (tab === "emt") {
+        titleElement.textContent = "🚌 🚌 🚌 🚌";
+        loadEMTStops();
+    }
+}
